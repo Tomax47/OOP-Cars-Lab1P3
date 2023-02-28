@@ -29,5 +29,6 @@ public class RandomCar extends Cars implements Normal{
         String surname = scan.nextLine();
         System.out.print("ID Number : ");
         int ID = scan.nextInt();
+        System.out.print("Car series : ");
     }
 }
