@@ -3,6 +3,10 @@ package Cars;
 import java.util.Scanner;
 
 public class RandomCar extends Cars implements Normal{
+    private String name;
+    private String surname;
+    private int ID;
+    private int series;
 
     public RandomCar(Car car){
         super(car);
@@ -24,11 +28,15 @@ public class RandomCar extends Cars implements Normal{
     public void ownerData() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Name : ");
-        String name = scan.nextLine();
+        name = scan.nextLine();
         System.out.print("Surname : ");
-        String surname = scan.nextLine();
+        surname = scan.nextLine();
         System.out.print("ID Number : ");
-        int ID = scan.nextInt();
-        System.out.print("Car series : ");
+        ID = scan.nextInt();
+        series = getSeries();
+    }
+
+    public String printOwnerData(){
+        return "Name : "+name+"\nSurname : "+surname+"\nID Number : "+ID+"\nCar Series Number : "+series;
     }
 }

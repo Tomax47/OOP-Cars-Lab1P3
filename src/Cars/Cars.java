@@ -31,6 +31,16 @@ public abstract class Cars extends Car implements Comparable{
     public abstract String getCarType();
     public abstract int carAge();
 
+    public double getMaxSpeed(){return getMaxSpeed();}
+    public boolean availableLadder(){return availableLadder();}
+    public void ownerData(){ownerData();}
+
+    public String printOwnerData(){return printOwnerData();}
+
+    public String printEmergencyData(){
+        return "Max Speed : "+getMaxSpeed()+"\nLadder Availability : "+availableLadder();
+    }
+
 
     //Comparing two cars based on their age
     @Override
@@ -39,4 +49,5 @@ public abstract class Cars extends Car implements Comparable{
         int otherCarAge = car.carAge();
         return Double.compare(carAge, otherCarAge);
     }
+
 }

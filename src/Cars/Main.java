@@ -1,8 +1,5 @@
 package Cars;
 
-import javax.management.ValueExp;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -21,7 +18,44 @@ public class Main {
 
         //Printing out the data of the heaviest car in the list
         int heaviestCar = heaviestCar(car);
-        System.out.println(car[heaviestCar].printData());
+        System.out.println("The heaviest car : \n"+car[heaviestCar].printData());
+
+        System.out.println();
+
+        //Collecting the data of the public cars' owners
+        for (int i = 0; i < car.length; i++) {
+            if(checkCarType(car[i], "Public")) {
+                System.out.println("\n#"+(i+1)+" :");
+                car[i].ownerData();
+            }
+        }
+
+        //Printing the public cars' owners data
+        for (int i = 0; i < car.length; i++) {
+            if(checkCarType(car[i], "Public")) {
+                System.out.println(car[i].printOwnerData());
+                System.out.println(car[i].printData()+"\n");
+            }
+        }
+
+
+        System.out.println();
+        //Collecting the emergency cars' data
+        for (int i = 0; i < car.length; i++) {
+            if(checkCarType(car[i], "Emergency")) {
+                car[i].getMaxSpeed();
+                car[i].availableLadder();
+            }
+        }
+
+        //Printing the emergency cars' data
+        for (int i = 0; i < car.length; i++) {
+            if(checkCarType(car[i], "Emergency")) {
+                System.out.println(car[i].printData());
+                System.out.println(car[i].printEmergencyData()+"\n");
+            }
+        }
+
 
     }
 
@@ -37,5 +71,11 @@ public class Main {
             }
         }
         return index;
+    }
+
+
+    //Check the data type match
+    public static boolean checkCarType(Cars car, String carType){
+        return car.getCarType() == carType;
     }
 }
